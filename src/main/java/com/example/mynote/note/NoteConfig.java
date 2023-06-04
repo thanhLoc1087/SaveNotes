@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Configuration
-public class StudentConfig {
+public class NoteConfig {
     @Bean
     CommandLineRunner commandLineRunner(NoteRepository repository) {
         return ars -> {

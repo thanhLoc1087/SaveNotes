@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>My Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="container m-5 p-2 rounded mx-auto bg-light shadow">
+    <!-- App title section -->
+    <div class="row m-1 p-4">
+        <div class="col">
+            <div class="p-1 h1 text-primary text-center mx-auto display-inline-block">
+                <i class="fa fa-check bg-primary text-white rounded p-2"></i>
+                <u>My Notes</u>
+            </div>
+        </div>
+    </div>
+
+    <!--  Update note-->
+    <div class="row m-1 p-3">
+        <div class="col col-11 mx-auto">
+            <form class="col bg-white rounded shadow-sm add-note-wrapper align-items-center justify-content-center"
+                  action="#"
+                  th:action="@{/edit/{noteId}(noteId=${note.id})}"
+                  th:object="${note}"
+                  method="post">
+                <div class="row pt-1 px-1">
+                    <div class="col">
+                        <input class="form-control form-control-lg border-0 add-note-input bg-transparent rounded"
+                               type="text" th:field="*{name}" id="name"
+                               placeholder="Add new note"/>
+
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                    </div>
+                    <div class="p-1">
+                        <input type="submit" class="btn btn-primary" value="Update"></input>
+                    </div>
+                </div>
+                <div class="p-2 mx-4 border-black-25 border-bottom"></div>
+                <div class="col p-2">
+                    <textarea required
+                              title="Note content"
+                              th:field="*{detail}" id="detail"
+                              class="form-control form-control-lg border-0 add-note-input bg-transparent rounded"
+                              placeholder="Content"
+                              name="Text1"
+                              cols="80"
+                              rows="5"></textarea>
+                    <span th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--  <form action="#"-->
+<!--        th:action="@{/edit/{noteId}(noteId=${note.id})}"-->
+<!--        th:object="${note}"-->
+<!--        method="post">-->
+<!--    <label for="name">Name</label>-->
+<!--    <input type="text" th:field="*{name}" id="name" placeholder="Name">-->
+<!--    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
+
+<!--    <label for="detail">Content</label>-->
+<!--    <input type="text" th:field="*{detail}" id="detail" placeholder="Content">-->
+<!--    <span th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></span>-->
+
+<!--    <input type="submit" value="Update Note">-->
+<!--  </form>-->
+</body>
+</html>

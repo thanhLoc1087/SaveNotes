@@ -1,0 +1,25 @@
+body {
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
+}
+
+.add-note-input,
+.edit-note-input {
+    outline: none;
+}
+
+.add-note-input:focus,
+.edit-note-input:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.view-opt-label,
+.date-label {
+    font-size: 0.8rem;
+}
+
+.edit-note-input {
+    font-size: 1.2rem !important;
+}
